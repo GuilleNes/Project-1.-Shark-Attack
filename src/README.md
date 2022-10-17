@@ -1,26 +1,10 @@
-# Project_1.0
-- Hypothesis
-- Cleaning
-- Visualization
-- Story-telling
-# Bonus
-- Grab your code
-- Put it into functions
-- Functions go into src folder
-- From SRC folder into Jupyter Notebook
-# Tips
-- Commit often
-- Push often
-
-# Project Ironhack 1.0
-
   # 1. INTRODUCTION
 
 The process that I have completed on the next steps is based on a dataframe called `attacks.csv` with data from different shark attacks on people from a period over 2000 years. The dataset contains information from dates, sex, activity... collected from the attacks.
 
 The first step of the process was an initial visualization of the data and the establishment of diferent hypothesis based on it. 
 
-The information on the dataset is not clear and may of the rows of the set, are completed with empty values and in total have more than 25000 rows. However, there is enough information to make some hypothesis.
+The information on the dataset is not clear and may of the rows of the set, are completed with empty values and in total have more than 25000 rows. However, there is enough information to make some initial hypothesis.
 
 
 
@@ -83,15 +67,62 @@ attacks_filtered["Month"] = attacks_filtered["Month"].apply(lambda x: re.findall
 attacks_filtered["Month"] = attacks_filtered["Month"].apply(lambda x: re.findall(pattern_6, str(x))).apply(lambda x: ' '.join(x))
 attacks_filtered = attacks_filtered.drop(["Date"], axis = 1)
 ```
-For the column of activity we apply a condition, filtering the diferent values to 8, where we encapsule the diferent types of values. Doing this, we will try to validate our hypothesis on an easier way. Another regex could have been easier to apply, but I was not able to get it... :(
+ - Cleaning the activity column
 
-[Activities filtered](../images/Activity%20filtered.png)
+For the column of activity we apply a condition, filtering an reducing the diferent values to 8, where we encapsule the diferent types of values. Doing this, we will try to validate our hypothesis on an easier way. Another regex could have been easier to apply, but I was not able to get it... :(
 
+![Activities filtered](../images/Activity%20filtered.png)
 
+ - Cleaning the time column
+  
 We repeat the previous step with the Time column in order to obtain 4 time ranges from the  different time expressions of the values in the dataset. The importance of this step is trying to clasify the maximum number of values, leaving a minnimum amount unclassify(btw, I used another shameful condition):
 
 ![Time filtered](../images/Time%20filtered.png)
 
+- Cleaning the Fatal column
+
+On the last steps of the cleaning process we filter the Fatal (Y/N) column with a simple regex getting the Y/N values only:
+
+```
+pattern = "^(N|Y)"
+
+attacks_filtered["Fatal (Y/N)"] = attacks_filtered["Fatal (Y/N)"].apply(lambda x: re.findall(pattern, str(x)))
+attacks_filtered["Fatal"] = attacks_filtered["Fatal (Y/N)"].explode()
+attacks_filtered = attacks_filtered.drop(["Fatal (Y/N)"], axis = 1)
+```
+- Cleaning the Sex column
+  
+Finally, we repeat the previous filter on the Sex column, in order to get only values F / M.
+
+# 2. VISUALIZATION
+
+First of all, using a seaborn countplot,  we display the top 7 countries by number of reports:
+
+![Top 7 countries](../images/Top7_countries.jpg)
+
+In addition to the previous graph, we have two plots indicating the number of reports since 1850 to now, were we can confirm the increase of them and the increase as well during summer.
+
+![reports along years](../images/reports_along_years.jpg)
+![month_number_reports](../images/month_number_reports.jpg)
+
+
+Finally, and related to the second hypothesis explained before, we have first the relation between the time and the number of attacks:
+
+![hours_numbers_attacks](../images/hours_number_attacks.jpg)
+
+We can see that the time when the number of attacks is bigger is in the morning and specially in the afternoon (around noon) despite most of the shark species have night habits. On the second plot, we have the same graph related to the fatality of the attacks.
+
+On the last of the graphs we have a relation of  between activity, number of attacks and fatality of them:
+
+![activity_attacks_fatality](../images/activity_attacks_fatality.jpg)
+
+The last of the graphs is referred to the first of my hypothesis. After filtering and encapsulating the diferent types of activities, we can see that those that envolved a board or paddle, are more likely to suffer an attack from a shark than others like swimming or diving. This might be cause for the shape of the boards or paddels use for this activities.
+
+However, and without having included this on the hypothesis, I have realized that despite suffering more attacks, the fatality is much lower than, swimming, for instance. This might be due to the fact that a board or paddle can actually protect us from a shark attack. This is an underlying hypothesis that I liked to include as well.
+
+I hope you take this into account the next time you go to the beach....
+
+🦈🦈🦈🦈🦈🦈🦈🦈🦈
 
 
 
