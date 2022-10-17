@@ -69,7 +69,21 @@ attacks_filtered = attacks_filtered.drop(["Date"], axis = 1)
 ```
  - Cleaning the activity column
 
-For the column of activity we apply a condition, filtering an reducing the diferent values to 8, where we encapsule the diferent types of values. Doing this, we will try to validate our hypothesis on an easier way. Another regex could have been easier to apply, but I was not able to get it... :(
+For the column of activity I applied a regex in a Dict, filtering an reducing the diferent values. Doing this, we will try to validate our hypothesis on an easier way.
+
+```
+dict_time = {"Swimming related": ".*(swim).*|.*(Swim).*",
+"Board involved activity": ".*(Surf).*|.*(surf).*|.*(Board).*|.*(board).*|.*(Pad).*|.*(pad).*|.*(Kay).*|.*(Canoe).*",
+"Fishing related": ".*(fish).*|(Fish).*|.*(Kill).*|.*(Pull).*|.*(Pick).*|.*(feed).*",
+"Beach activities":".*(Wad).*|.*(Bath).*|.*(bath).*|.*(Stans).*|.*(Play).*|.*(play).*|.*(Walk).*|.*(walk).*",
+"Diving activities": ".*(Div).*|.*(div).*|.*(underw).*|.*(Snork).*",
+"Consequence of a shipwreck": ".*(dinghy).*|.*(collide).*|.*(lifeboat).*|.*(explodex).*|.*(skiff).*",
+"Consequence of handeling sharks": ".*(Shark).*|.*(shark).*",}
+
+for key, value in dict_time.items():
+  attacks_filtered["Activity"] = attacks_filtered["Activity"].str.replace(value, key, regex = True)
+
+```
 
 ![Activities filtered](../images/Activity%20filtered.png)
 
