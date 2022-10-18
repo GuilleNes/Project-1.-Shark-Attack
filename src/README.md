@@ -132,7 +132,7 @@ On the last of the graphs we have a relation of  between activity, number of att
 
 The last of the graphs is referred to the first of my hypothesis. After filtering and encapsulating the diferent types of activities, we can see that those that envolved a board or paddle, are more likely to suffer an attack from a shark than others like swimming or diving. This might be cause for the shape of the boards or paddels use for this activities.
 
-However, and without having included this on the hypothesis, I have realized that despite suffering more attacks, the fatality is much lower than, swimming, for instance. This might be due to the fact that a board or paddle can actually protect us from a shark attack. This is an underlying hypothesis that I liked to include as well.
+However, and without having included this on the hypothesis, I have realized that despite suffering more attacks, the fatality is much lower than, swimming, for instance. This might be due to the fact that a board or paddle can actually protect us from a shark attack. This is an underlying result that I liked to include as well.
 
 I hope you take this into account the next time you go to the beach....
 
