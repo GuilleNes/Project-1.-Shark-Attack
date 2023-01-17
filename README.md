@@ -9,7 +9,7 @@ The information on the dataset is not clear and may of the rows of the set, are 
 
 
 
-# 1.1. HYPHOTESIS
+# 1.1. HYPOTHESIS
 
 I make the next ones, based on the first visualization:
 
@@ -85,13 +85,13 @@ for key, value in dict_time.items():
 
 ```
 
-![Activities filtered](../images/Activity%20filtered.png)
+![Activities filtered](images/Activity%20filtered.png)
 
  - Cleaning the time column
   
 We repeat the previous step with the Time column in order to obtain 4 time ranges from the  different time expressions of the values in the dataset. The importance of this step is trying to clasify the maximum number of values, leaving a minnimum amount unclassify(btw, I used another shameful condition):
 
-![Time filtered](../images/Time%20filtered.png)
+![Time filtered](images/Time%20filtered.png)
 
 - Cleaning the Fatal column
 
@@ -112,23 +112,23 @@ Finally, we repeat the previous filter on the Sex column, in order to get only v
 
 First of all, using a seaborn countplot,  we display the top 7 countries by number of reports:
 
-![Top 7 countries](../images/Top7_countries.jpg)
+![Top 7 countries](images/Top7_countries.jpg)
 
 In addition to the previous graph, we have two plots indicating the number of reports since 1850 to now, were we can confirm the increase of them and the increase as well during summer.
 
-![reports along years](../images/reports_along_years.jpg)
-![month_number_reports](../images/month_number_reports.jpg)
+![reports along years](images/reports_along_years.jpg)
+![month_number_reports](images/month_number_reports.jpg)
 
 
 Finally, and related to the second hypothesis explained before, we have first the relation between the time and the number of attacks:
 
-![hours_numbers_attacks](../images/hours_number_attacks.jpg)
+![hours_numbers_attacks](images/hours_number_attacks.jpg)
 
 We can see that the time when the number of attacks is bigger is in the morning and specially in the afternoon (around noon) despite most of the shark species have night habits. On the second plot, we have the same graph related to the fatality of the attacks.
 
 On the last of the graphs we have a relation of  between activity, number of attacks and fatality of them:
 
-![activity_attacks_fatality](../images/activity_attacks_fatality.jpg)
+![activity_attacks_fatality](images/activity_attacks_fatality.jpg)
 
 The last of the graphs is referred to the first of my hypothesis. After filtering and encapsulating the diferent types of activities, we can see that those that envolved a board or paddle, are more likely to suffer an attack from a shark than others like swimming or diving. This might be cause for the shape of the boards or paddels use for this activities.
 
