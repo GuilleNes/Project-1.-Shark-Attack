@@ -1,6 +1,5 @@
 import re
 
-
 # We create a function for joining all the different activities into only 7 categories.
 
 def filter_activity (df, dict, column):

@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 data/attacks.csv
-/src/Data_cleaning.ipynb
+src/Data_cleaning.ipynb
+
 
